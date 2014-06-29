@@ -1,0 +1,19 @@
+{
+  "name": "mikrotik_usage_graph",
+  "version": "0.0.1",
+  "description": "Utility to collect information from Mikrotik devices and show the total usage on a graph",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Wiggins <chris@chriswiggins.co.nz>",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "mikronode": "~0.3.3",
+    "hapi": "~6.0.2",
+    "node-persist": "0.0.2",
+    "moment": "~2.7.0",
+    "async": "~0.9.0",
+    "jade": "~1.3.1"
+  }
+}

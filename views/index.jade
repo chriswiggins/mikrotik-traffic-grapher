@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	div.noWidth
+		script(type='text/javascript').                                                  
+			var monthRx = !{JSON.stringify(monthRx)};
+			var monthTx = !{JSON.stringify(monthTx)};
+			var totalRx = !{JSON.stringify(totalRx)};
+			var totalTx = !{JSON.stringify(totalTx)};
+
+			var monthName = !{JSON.stringify(monthName)};
+			var monthDays = !{JSON.stringify(monthDays)};
+			createChart(monthName, monthDays, monthRx, monthTx, totalRx, totalTx)
+
+		div.chartContainer(style='width: 95%; margin-left: auto; margin-right: auto;')
