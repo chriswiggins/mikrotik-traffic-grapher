@@ -68,13 +68,13 @@ function updateData(callback){
 		if(returnedData[0]['rx-byte'] < data[ date ][2] || data[ date ][2] == -1){
 			data[ date ][2] = returnedData[0]['rx-byte'];
 		}else{
-			data[ date ][0] = data[ date ][0] + ( returnedData[0]['rx-byte'] - data[ date ][2] );
+			data[ date ][0] = data[ date ][0] + ( returnedData[0]['rx-byte'] - data[ date ][2] - data[ date ][0] );
 		}
 
 		if(returnedData[0]['tx-byte'] < data[ date ][3] || data[ date ][3] == -1){
 			data[ date ][3] = returnedData[0]['tx-byte'];
 		}else{
-			data[ date ][1] = data[ date ][1] +  ( returnedData[0]['tx-byte'] - data[ date ][3] );
+			data[ date ][1] = data[ date ][1] +  ( returnedData[0]['tx-byte'] - data[ date ][3] - data[ date ][1] );
 		}
 
 		storage.setItem(yearMonth, data);	
