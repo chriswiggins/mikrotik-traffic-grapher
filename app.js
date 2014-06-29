@@ -65,17 +65,19 @@ function updateData(callback){
 	collectData(function(err, returnedData){
 		//If the data we get for RX and TX is bigger than what we have stored, then thats the correct value
 		//If its smaller, then we need to add the info we received to the data we had (this will happen when the router reboots and resets stats)
-		if(returnedData[0]['rx-byte'] < data[ date ][2] || data[ date ][2] == -1){
+		//if(returnedData[0]['rx-byte'] < data[ date ][2] || data[ date ][2] == -1){
+		//	data[ date ][2] = returnedData[0]['rx-byte'];
+		//}else{
+			data[ date ][0] += returnedData[0]['rx-byte'] - data[ date ][2];
 			data[ date ][2] = returnedData[0]['rx-byte'];
-		}else{
-			data[ date ][0] = data[ date ][0] + ( returnedData[0]['rx-byte'] - data[ date ][2] - data[ date ][0] );
-		}
+		//}
 
-		if(returnedData[0]['tx-byte'] < data[ date ][3] || data[ date ][3] == -1){
+		//if(returnedData[0]['tx-byte'] < data[ date ][3] || data[ date ][3] == -1){
+		//	data[ date ][3] = returnedData[0]['tx-byte'];
+		//}else{
+			data[ date ][1] += returnedData[0]['tx-byte'] - data[ date ][3];
 			data[ date ][3] = returnedData[0]['tx-byte'];
-		}else{
-			data[ date ][1] = data[ date ][1] +  ( returnedData[0]['tx-byte'] - data[ date ][3] - data[ date ][1] );
-		}
+		//}
 
 		storage.setItem(yearMonth, data);	
 
