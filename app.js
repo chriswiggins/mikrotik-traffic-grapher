@@ -9,11 +9,13 @@ var interfaceName = 'pppoe-out1';
 var host = '10.1.1.254';
 var username = 'grapher';
 var password = 'grapher';
+var basename = ''; //If you're behind a proxy, then change this to like below
+//var basename = '/grapher' //NO TRAILING SLASH!
 
 
 storage.initSync();
 
-var server = new Hapi.Server(8080, "localhost", {
+var server = new Hapi.Server(8080, {
 	views: {
 	    engines: {
 	        jade: require("jade")
@@ -135,27 +137,28 @@ function returnChart(request, reply){
 	    monthTx: monthTx,
 	    monthName: month.format("MMMM")+' '+year,
 	    monthDays: monthDays,
-	    totalRx: parseFloat(totalRx).toFixed(2),
-	    totalTx: parseFloat(totalTx).toFixed(2),
+	    totalRx: parseFloat(totalRx).toFixed(3),
+	    totalTx: parseFloat(totalTx).toFixed(3),
 
 	    availableCharts: availableCharts,
+	    basename: basename
 	});
 }
 
 server.route({
-    path: "/",
+    path: (basename.length>0)?basename:'/',
     method: "GET",
     handler: returnChart
 });
 
 server.route({
-    path: "/{year}/{month}",
+    path: basename+"/{year}/{month}",
     method: "GET",
     handler: returnChart
 });
 
 server.route({
-    path: "/static/{path*}",
+    path: basename+"/static/{path*}",
     method: "GET",
     handler: {
         directory: {

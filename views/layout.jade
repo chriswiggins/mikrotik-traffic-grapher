@@ -7,12 +7,12 @@ html
 			block meta
 				meta(name='description', content='')
 				meta(name='keywords', content='')
-			link(rel='stylesheet', href='/static/css/bootstrap.min.css')
+			link(rel='stylesheet', href=basename+'/static/css/bootstrap.min.css')
 			| <style>
 			| body { padding-top: 60px; }
 			| </style>
-			script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
-			script(src='/static/js/createChart.js')
+			script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+			script(src=basename+'/static/js/createChart.js')
 	body
 		include header
 

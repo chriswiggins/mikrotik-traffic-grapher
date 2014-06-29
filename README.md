@@ -16,3 +16,5 @@ var host = '10.1.1.254';
 var username = 'grapher';
 var password = 'grapher';
 ```
+
+If you're running this behind a proxy, then you'll want to enable the basename parameter at the top too.
