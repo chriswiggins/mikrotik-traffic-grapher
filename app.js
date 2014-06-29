@@ -6,6 +6,9 @@ var async = require('async');
 
 var updateInteval = 1; //Interval time in minutes
 var interfaceName = 'pppoe-out1';
+var host = '10.1.1.254';
+var username = 'grapher';
+var password = 'grapher';
 
 
 storage.initSync();
@@ -21,7 +24,7 @@ var server = new Hapi.Server(8080, "localhost", {
 
 
 function collectData(callback){
-	var connection = new api('10.1.1.254','grapher','grapher', {debug: 0});
+	var connection = new api(host, username, password, {debug: 0});
 	connection.connect(function(conn) {
 		var chan = conn.openChannel();
 
