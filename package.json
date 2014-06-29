@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chris Wiggins <chris@chriswiggins.co.nz>",
+  "repository" : { "type" : "git", "url" : "https://github.com/chriswiggins/mikrotik-traffic-grapher.git" },
   "license": "BSD-2-Clause",
   "dependencies": {
     "mikronode": "~0.3.3",
